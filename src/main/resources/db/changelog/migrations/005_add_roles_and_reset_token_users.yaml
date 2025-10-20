@@ -1,0 +1,21 @@
+databaseChangeLog:
+  - changeSet:
+      id: 006
+      author: ulan
+      changes:
+        - addColumn:
+            tableName: users
+            columns:
+              - column:
+                  name: role_id
+                  type: bigint
+              - column:
+                  name: reset_password_token
+                  type: varchar(255)
+
+        - addForeignKeyConstraint:
+            baseTableName: users
+            baseColumnNames: role_id
+            constraintName: fk_users_roles
+            referencedTableName: roles
+            referencedColumnNames: id
