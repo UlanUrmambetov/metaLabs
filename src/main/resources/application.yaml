@@ -1,0 +1,57 @@
+spring:
+  config:
+    import: optional:file:.env[.properties]
+  application:
+    name: petProject
+
+  datasource:
+    url: jdbc:postgresql://localhost:5432/postgres
+    username: ${DB_USERNAME}
+    password: ${DB_PASSWORD}
+    driver-class-name: org.postgresql.Driver
+
+  jpa:
+    hibernate:
+      ddl-auto: validate
+    properties:
+      hibernate:
+        generate_statistics: false
+        format_sql: true
+    show-sql: false
+
+  liquibase:
+    change-log: classpath:/db/changelog/master.yaml
+
+  mvc:
+    static-path-pattern: /static/**
+    log-request-details: true
+
+  freemarker:
+    template-loader-path: classpath:/templates/
+    suffix: .ftlh
+    expose-session-attributes: true
+    allow-request-override: true
+    check-template-location: true
+
+server:
+  port: 8090
+
+logging:
+  level:
+    root: info
+    org:
+      springframework:
+        security: debug
+        web.servlet.DispatcherServlet: DEBUG
+      hibernate:
+        stat: error
+        type: error
+    sql: error
+    web: error
+  pattern:
+    file: '%d{yyyy-MM-dd HH:mm:ss} %-5level %logger{36} - %msg%n'
+  file:
+    path: logs
+
+
+

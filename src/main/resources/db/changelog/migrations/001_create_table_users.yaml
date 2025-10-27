@@ -1,0 +1,42 @@
+databaseChangeLog:
+  - changeSet:
+      id: 001
+      author: ulan
+      changes:
+        - createTable:
+            tableName: users
+            columns:
+              - column:
+                  name: id
+                  type: bigint
+                  autoIncrement: true
+                  constraints:
+                    primaryKey: true
+              - column:
+                  name: name
+                  type: varchar(50)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: age
+                  type: int
+              - column:
+                  name: email
+                  type: varchar(100)
+                  constraints:
+                    nullable: false
+                    unique: true
+              - column:
+                  name: password
+                  type: varchar(100)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: phone_number
+                  type: varchar(50)
+              - column:
+                  name: avatar
+                  type: varchar(500)
+              - column:
+                  name: enabled
+                  type: boolean

@@ -1,0 +1,22 @@
+databaseChangeLog:
+  - changeSet:
+      id: 5
+      author: ulan
+      changes:
+        - insert:
+            tableName: users
+            columns:
+              - column: {name: id, value: 1}
+              - column: {name: name, value: 'qwe'}
+              - column: {name: email, value: 'qwe@qwe.qwe'}
+              - column: {name: password, value: '$2a$12$RXKd8rzAEW2xtWqQ1tVaBukJYRMdnuXCe1ygyp4irtkiXhLqbHKc2'} # Пароль: qwe
+              - column: {name: enabled, valueBoolean: true}
+
+        - insert:
+            tableName: users
+            columns:
+              - column: {name: id, value: 2}
+              - column: {name: name, value: 'asd'}
+              - column: {name: email, value: 'asd@asd.asd'}
+              - column: {name: password, value: '$2a$12$BIc5ckChMTJkMbYr5hnjUeU6lSZEBZy91vsL6la6.bXD67wXq7DT2'} # Пароль: asd
+              - column: {name: enabled, valueBoolean: true}
